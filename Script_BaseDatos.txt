@@ -1,0 +1,44 @@
+CREATE DATABASE shopdb;
+
+CREATE TABLE shopdb.users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE shopdb.products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    price DECIMAL(10, 2),
+    quantity INT
+);
+
+CREATE TABLE shopdb.clients (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id VARCHAR(50),
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    phone VARCHAR(20),
+    address TEXT
+);
+
+CREATE TABLE shopdb.purchase_history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    client_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    purchase_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    total_price DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (client_id) REFERENCES clients(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
+-- Insertar algunos sample products si no se tiene habilitado el proyecto Java
+INSERT INTO shopdb.products (name, price, quantity) VALUES
+('Engine Oil 5W-30', 29.99, 50),
+('Air Filter', 19.99, 30),
+('Brake Pads', 49.99, 20),
+('Spark Plug Set', 24.99, 40),
+('Car Battery', 99.99, 15);
