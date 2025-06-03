@@ -20,9 +20,9 @@ class ProductController {
             $clientId = $_SESSION['user_id'];
 
             if ($this->productModel->purchase($productId, $clientId, $quantity)) {
-                $_SESSION['message'] = "Purchase completed successfully!";
+                $_SESSION['message'] = "Compra completada!";
             } else {
-                $_SESSION['message'] = "Failed to complete purchase. Not enough stock.";
+                $_SESSION['message'] = "No se puede comprar. Sin stock.";
             }
 
             header('Location: /client/dashboard');

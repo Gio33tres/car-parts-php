@@ -22,7 +22,7 @@ class AuthController {
                 header('Location: /client/dashboard');
                 exit;
             } else {
-                $error = "Invalid credentials";
+                $error = "Credenciales incorrectas. Por favor, intente de nuevo.";
                 include __DIR__ . '/../views/auth/login.php';
             }
         } else {
@@ -48,24 +48,21 @@ class AuthController {
                 'address' => isset($_POST['address']) ? trim($_POST['address']) : null
             ];
 
-            // Validate required fields
             if (empty($username) || empty($password) || empty($clientData['first_name']) || 
                 empty($clientData['last_name']) || empty($clientData['email'])) {
-                $error = "All required fields must be filled out.";
+                $error = "Todos los campos requeridos deben ser llenados.";
                 include __DIR__ . '/../views/auth/register.php';
                 return;
             }
-
-            // Validate email format
+            
             if (!filter_var($clientData['email'], FILTER_VALIDATE_EMAIL)) {
-                $error = "Please enter a valid email address.";
+                $error = "Ingrese una dirección de correo válida.";
                 include __DIR__ . '/../views/auth/register.php';
                 return;
             }
 
-            // Check if username exists
             if ($this->userModel->usernameExists($username)) {
-                $error = "Username already exists. Please choose a different username.";
+                $error = "Nombre de usuario existente, intente con otro.";
                 include __DIR__ . '/../views/auth/register.php';
                 return;
             }
@@ -74,11 +71,11 @@ class AuthController {
             
             if ($userId) {
                 session_start();
-                $_SESSION['message'] = "Registration successful! Please login.";
+                $_SESSION['message'] = "Registrado con éxisto! Inicie sesión.";
                 header('Location: /login');
                 exit;
             } else {
-                $error = "Registration failed. Please try again later.";
+                $error = "Error al registrar.";
                 include __DIR__ . '/../views/auth/register.php';
             }
         } else {

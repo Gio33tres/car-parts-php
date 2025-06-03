@@ -13,7 +13,6 @@
             <a href="/logout" class="btn btn-danger">Cerrar Sesión</a>
         </div>
         
-        <!-- Products Section -->
         <h2 class="my-4">Repuestos Disponibles</h2>
         <div class="row">
             <?php foreach ($products as $product): ?>
@@ -37,7 +36,6 @@
             <?php endforeach; ?>
         </div>
 
-        <!-- Purchase History Section -->
         <h2 class="my-4">Historial de Compras</h2>
         <div class="table-responsive">
             <table class="table table-striped table-hover">
@@ -71,7 +69,6 @@
         </div>
     </div>
 
-    <!-- Purchase Modal -->
     <div class="modal fade" id="purchaseModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">

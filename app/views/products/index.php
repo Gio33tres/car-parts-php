@@ -7,7 +7,6 @@ session_start();
 $request = $_SERVER['REQUEST_URI'];
 $path = parse_url($request, PHP_URL_PATH);
 
-// Simple routing
 $found = false;
 foreach ($routes as $route => $handler) {
     if ($path === $route) {
@@ -15,7 +14,6 @@ foreach ($routes as $route => $handler) {
         list($controllerName, $method) = explode('@', $handler);
         require_once __DIR__ . "/../app/controllers/$controllerName.php";
         
-        // Initialize database connection
         $db = new Database();
         $conn = $db->getConnection();
         

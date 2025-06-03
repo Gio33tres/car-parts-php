@@ -25,12 +25,10 @@ class User {
 
     public function create($username, $password, $clientData) {
         try {
-            // Check if username already exists
             if ($this->usernameExists($username)) {
                 return false;
             }
 
-            // Create client with hashed password
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
             $stmt = $this->conn->prepare("INSERT INTO shopdb.clients (userid, first_name, last_name, email, password, phone, address) 
                                         VALUES (?, ?, ?, ?, ?, ?, ?)");

@@ -20,7 +20,6 @@ class ClientController {
 
         $clientId = $_SESSION['user_id'];
         
-        // Get client information
         $client = $this->userModel->getById($clientId);
         if ($client) {
             $_SESSION['username'] = $client['userid'];
