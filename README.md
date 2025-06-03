@@ -14,11 +14,11 @@ Héctor Giovanny Benítez Ramos
    C:\Program Files\ renombrando la carpeta descomprimida como 'php-8.4.7'
    quedando la ruta final así: C:\Program Files\php-8.4.7
 3. la ejecución en ambiente de desarrollo se hace con el comando 
-   -> php -S localhost:8000
+   -> 'php -S localhost:8000'
    El cual se debe ejecutar en la terminal dentro de la carpeta public 
    -> car-parts-php\public
-5. Para que las dependencias de SQL y PDO funcionen correctamente, se reco-
-   mienda cortar y pegar el archivo 'php.ini' dentro del directorio
+5. Para que las dependencias de SQL y PDO funcionen correctamente, se recomienda 
+   cortar y pegar el archivo 'php.ini' dentro del directorio
    -> C:\Program Files\php-8.4.7
 6. El 'php.ini' tiene configurado el path del punto 3 para las extensiones
    que se han habilitado por lo que se debe tener en cuenta.
@@ -27,3 +27,6 @@ Héctor Giovanny Benítez Ramos
    extension=pdo_sqlite
 8. Diagrama UML del proyecto:
    https://www.mermaidchart.com/raw/2b81b23c-58f2-45d3-8f21-b9d64cc26f44?theme=light&version=v0.1&format=svg
+9. El script para crear la base de datos MySQL está dentro del archivo 'Script_BaseDatos.txt'.
+10. Si se tiene el proyecto Java de vista de almacén, este hace uso de las credenciales de conexión de este
+    proyecto y desde allí se puede alimentar la base de datos de productos, caso contrario se hace manual con scripts SQL.
