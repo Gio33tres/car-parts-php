@@ -11,7 +11,8 @@ Héctor Giovanny Benítez Ramos
    thread safe más reciente de PHP disponible en esta página web: 
    https://windows.php.net/download#php-8.4
 3. Una vez descargado el .zip de PHP, se debe guardar en el directorio
-   C:\Program Files\php-8.4.7
+   C:\Program Files\ renombrando la carpeta descomprimida como 'php-8.4.7'
+   quedando la ruta final así: C:\Program Files\php-8.4.7
 3. la ejecución en ambiente de desarrollo se hace con el comando 
    -> php -S localhost:8000
    El cual se debe ejecutar en la terminal dentro de la carpeta public 
